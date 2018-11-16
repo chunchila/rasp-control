@@ -1,5 +1,6 @@
 from flask import Flask
 app = Flask(__name__)
+from flask_sockets import Sockets
 import os
 
 import os
@@ -33,7 +34,7 @@ def hello():
         data = file.read()
     return data
 
-'''
+
 @sockets.route('/register')
 def reg(ws):
     while not ws.closed:
@@ -43,9 +44,9 @@ def reg(ws):
         with open(fileName, "r") as file:
             data = file.read()
         ws.send("hello from ws :) : ", data)
-'''
+
 
 if __name__ == '__main__':
-   # sockets = Sockets(app)
+    sockets = Sockets(app)
     app.run(debug=True, port=5000, host="0.0.0.0")
 
