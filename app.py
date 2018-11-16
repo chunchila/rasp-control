@@ -1,6 +1,8 @@
 from flask import Flask
-app = Flask(__name__)
 from flask_sockets import Sockets
+app = Flask(__name__)
+
+sockets = Sockets(app)
 import os
 
 import os
@@ -47,6 +49,6 @@ def reg(ws):
 
 
 if __name__ == '__main__':
-    sockets = Sockets(app)
+
     app.run(debug=True, port=5000, host="0.0.0.0")
 
