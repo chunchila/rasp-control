@@ -13,7 +13,7 @@ if not os.path.exists(fileName):
 def change_func_page():
     with open(fileName, "r") as file:
         data = file.read()
-        
+
     with open(fileName, "w+") as file:
         if data == "1":
             val = "0"
