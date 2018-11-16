@@ -18,7 +18,7 @@ def change():
         else:
             val = "1"
             file.write(val)
-    return (v)
+    return (val)
 
 @app.route('/')
 def hello():
