@@ -3,11 +3,9 @@ from flask_sockets import Sockets
 app = Flask(__name__)
 
 sockets = Sockets(app)
-import os
 
 import os
 import logging
-#import gevent
 
 fileName = "tmpfile.txt"
 
@@ -37,8 +35,9 @@ def hello():
     return data
 
 
-@sockets.route('/register')
+@sockets.route('/registry')
 def reg(ws):
+    print("im in socket")
     while not ws.closed:
         # Sleep to prevent *constant* context-switches.
         time.sleep(0.1)
