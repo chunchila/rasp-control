@@ -7,11 +7,10 @@ fileName = "tmpfile.txt"
 if not os.path.exists(fileName):
     with open(fileName, "w+") as file:
         file.write("0")
-@app.route('/')
-def hello():
-    with open(fileName, "r") as file:
-        data = file.read()
 
+
+@app.route('/change')
+def change():
     with open(fileName, "w+") as file:
         if data == "1":
             val = "0"
@@ -19,6 +18,11 @@ def hello():
         else:
             val = "1"
             file.write(val)
+
+@app.route('/')
+def hello():
+    with open(fileName, "r") as file:
+        data = file.read()
     return data
 
 if __name__ == '__main__':
