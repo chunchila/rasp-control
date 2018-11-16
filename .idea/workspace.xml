@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a98e65bc-edfa-4b3f-be5c-7b49b1a5b7fe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/webSocket.py" beforeDir="false" afterPath="$PROJECT_DIR$/local/webSocket.py" afterDir="false" />
-    </list>
+    <list default="true" id="a98e65bc-edfa-4b3f-be5c-7b49b1a5b7fe" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="160" />
-          <entry key="py" value="1003" />
+          <entry key="py" value="1016" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
@@ -47,7 +44,7 @@
         <counts>
           <entry key="Markdown" value="155" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="1008" />
+          <entry key="Python" value="1021" />
         </counts>
       </usages-collector>
     </session>
@@ -57,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+            <state relative-caret-position="110">
+              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
                 <marker date="1542400612828" expanded="true" signature="415:420" ph="..." />
@@ -504,8 +501,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+        <state relative-caret-position="110">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
             <marker date="1542400612828" expanded="true" signature="415:420" ph="..." />
