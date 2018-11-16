@@ -10,7 +10,7 @@ if not os.path.exists(fileName):
 
 
 @app.route('/change')
-def change():
+def moshe():
     with open(fileName, "w+") as file:
         if data == "1":
             val = "0"
