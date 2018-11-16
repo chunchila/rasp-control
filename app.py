@@ -4,7 +4,6 @@ import os
 
 import os
 import logging
-import redis
 #import gevent
 
 fileName = "tmpfile.txt"
