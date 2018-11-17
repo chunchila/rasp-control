@@ -88,7 +88,7 @@ def hello():
         data = file.read()
     return html
 
-@app.route('/val')
+@app.route('/check')
 def hello():
     with open(fileName, "r") as file:
         data = file.read()
