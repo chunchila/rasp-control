@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sockets import Sockets
 app = Flask(__name__)
+import time
 
 sockets = Sockets(app)
 
@@ -87,10 +88,9 @@ def hello():
 
 @sockets.route('/register')
 def reg(ws):
-    print("im in socket")
     while not ws.closed:
         # Sleep to prevent *constant* context-switches.
-        time.sleep(0.1)
+        #time.sleep(0.1)
         #message = ws.receive()
         with open(fileName, "r") as file:
             data = file.read()
