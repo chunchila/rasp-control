@@ -94,7 +94,7 @@ def reg(ws):
         #message = ws.receive()
         with open(fileName, "r") as file:
             data = file.read()
-        ws.send("hello from ws :) : ", data)
+        ws.send("hello from ws :) : " + str(data))
 
 
 if __name__ == '__main__':
