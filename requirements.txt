@@ -20,4 +20,7 @@ trans==2.1.0
 urllib3==1.24
 Werkzeug==0.14.1
 Flask-Sockets
+gevent-websocket
+gevent
+
 
