@@ -2,6 +2,9 @@ from flask import Flask
 from flask_sockets import Sockets
 app = Flask(__name__)
 import time
+import threading
+import _thread
+
 
 sockets = Sockets(app)
 
@@ -85,16 +88,30 @@ def hello():
         data = file.read()
     return html
 
+@app.route('/val')
+def hello():
+    with open(fileName, "r") as file:
+        data = file.read()
+    return data
+
 
 @sockets.route('/register')
 def reg(ws):
-    while not ws.closed:
-        # Sleep to prevent *constant* context-switches.
-        #time.sleep(0.1)
-        #message = ws.receive()
-        with open(fileName, "r") as file:
-            data = file.read()
-        ws.send("hello from ws :) : " + str(data))
+    def ws_opened():
+        import datetime
+        d = ""
+        while not ws.closed:
+            # Sleep to prevent *constant* context-switches.
+            time.sleep(0.2)
+            #message = ws.receive()
+
+            with open(fileName, "r") as file:
+                data = file.read()
+
+            if d != data:
+                ws.send("hello from ws :) : " + datetime.datetime.now().strftime("%H %M %s"))
+                d = data
+        _thread.start_new_thread(ws_opened,())
 
 
 if __name__ == '__main__':
