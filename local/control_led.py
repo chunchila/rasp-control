@@ -12,7 +12,7 @@ if __name__ == '__main__':
     try:
         while (True):
             start = time.time()
-            r = requests.get("https://still-crag-29020.herokuapp.com/")
+            r = requests.get("https://still-crag-29020.herokuapp.com/check")
             end = time.time() - start
             print("req took : " , end )
             if "1" in r.text:
