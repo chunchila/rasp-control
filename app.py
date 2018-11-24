@@ -102,12 +102,12 @@ def reg(ws):
         d = ""
         while not ws.closed:
             # Sleep to prevent *constant* context-switches.
-            time.sleep(0.2)
+            time.sleep(0.5)
             #message = ws.receive()
-
+            print("starting process")
             with open(fileName, "r") as file:
                 data = file.read()
-
+                print("getting val from file : " ,data )
             if d != data:
                 ws.send("hello from ws :) : " + datetime.datetime.now().strftime("%H %M %s"))
                 d = data
