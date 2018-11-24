@@ -30,7 +30,7 @@ html = '''
   <form action="/change" method="get">
 <div class="container">
   <h1>Click The Button To Change The Status</h1>        
-  <button type="submit" class="btn btn-success btn-lg">Primary</button>
+  <button type="submit" class="btn btn-success btn-lg">Switch Status</button>
 </div>
 
 </body>
@@ -55,7 +55,7 @@ changed_html = '''
 <div class="container">
   <h1>Status Changed To {0}</h1>        
   <h1>Click The Button To Change The Status</h1>        
-  <button type="submit" class="btn btn-success btn-lg">Primary</button>
+  <button type="submit" class="btn btn-success btn-lg">Switch Status</button>
 </div>
 
 </body>
@@ -83,13 +83,13 @@ def change_func_page():
     return changed_html.replace("{0}" , val)
 
 @app.route('/')
-def hello():
+def get_index():
     with open(fileName, "r") as file:
         data = file.read()
     return html
 
 @app.route('/check')
-def hello():
+def get_check():
     with open(fileName, "r") as file:
         data = file.read()
     return data
