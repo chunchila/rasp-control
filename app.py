@@ -11,6 +11,10 @@ sockets = Sockets(app)
 import os
 import logging
 
+from gevent import pywsgi
+from geventwebsocket.handler import WebSocketHandler
+import gevent
+
 fileName = "tmpfile.txt"
 
 html = '''
@@ -94,17 +98,19 @@ def get_check():
         data = file.read()
     return data
 
-
+import threading
 @sockets.route('/register')
 def reg(ws):
     def ws_opened():
+
+        print("new thread started for connection")
         import datetime
         try:
             d = ""
             while not ws.closed:
-                print("new thread started for connection")
+                print("looping")
                 # Sleep to prevent *constant* context-switches.
-                time.sleep(0.5)
+                gevent.sleep(0.1)
                 #message = ws.receive()
                 ws.send("hello from ws :) : " + datetime.datetime.now().strftime("%H %M %s"))
                 #print("starting process")
@@ -116,16 +122,14 @@ def reg(ws):
                     d = data
         except Exception as e:
             print(e)
-        ws_opened()
 
-    #_thread.start_new_thread(ws_opened,())
+
+    threading.Thread(target=ws_opened).start()
 
 
 if __name__ == '__main__':
 
     #app.run(debug=True, port=5000, host="0.0.0.0")
-    from gevent import pywsgi
-    from geventwebsocket.handler import WebSocketHandler
 
     server = pywsgi.WSGIServer(('', 5000), app, handler_class=WebSocketHandler)
     server.serve_forever()
