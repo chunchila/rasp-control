@@ -8,7 +8,7 @@ provider "azurerm" {
 
 
 variable "vms" {
-    value = 10
+    default = 10
   
 }
 
