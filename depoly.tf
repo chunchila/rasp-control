@@ -145,7 +145,8 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
     network_interface_ids = ["${element(azurerm_network_interface.myterraformnic.*.id,count.index)}"]
     vm_size               = "Standard_DS1_v2"
-    
+    delete_data_disks_on_termination = true
+    delete_os_disk_on_termination  =true
     
 
     storage_os_disk {
@@ -153,7 +154,9 @@ resource "azurerm_virtual_machine" "myterraformvm" {
         caching           = "ReadWrite"
         create_option     = "FromImage"
         managed_disk_type = "Premium_LRS"
+
     }
+    
 
     storage_image_reference {
         publisher = "Canonical"
@@ -194,14 +197,3 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 
 
 }
-
-locals {
- moshe = "sdsad"
- dani = "${element(list("1","2","3" , 2))}"
-}
-
-variable "someName" {
-
-default = "${local.dani}"  
-}
-
