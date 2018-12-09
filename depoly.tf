@@ -8,7 +8,7 @@ provider "azurerm" {
 
 
 variable "vms" {
-    default = 1
+    default = 2
   
 }
 
@@ -193,7 +193,10 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     command = "sleep 4"
     #interpreter = ["perl", "-e"]
   }
-
-
-
+  
 }
+
+output "public_ip" {
+  value = "${azurerm_public_ip.myterraformpublicip.*.ip_address}"
+}
+
