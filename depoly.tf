@@ -8,12 +8,12 @@ provider "azurerm" {
 
 
 variable "vms" {
-    default = 2
+    default = 8
   
 }
 
 # get az tenent id 
-#az account show --query "{subscriptionId:id, tenantId:tenantId}"
+#az account show --query "{subscriptionId:id, tenantId:tenantId}"   
 
 # create net application registration 
 #az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/3abd0dd5-602a-4620-b1f8-d53bf2a6dbad"
@@ -193,10 +193,9 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     command = "sleep 4"
     #interpreter = ["perl", "-e"]
   }
-  
+
 }
 
 output "public_ip" {
   value = "${azurerm_public_ip.myterraformpublicip.*.ip_address}"
 }
-
