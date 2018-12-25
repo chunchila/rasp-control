@@ -122,7 +122,7 @@ resource "azurerm_lb_backend_address_pool" "lb_backend_address_pool_deploy" {
   name                = "lb_backend_address_pool_deploy"
 }
 
-resource "azurerm_lb_nat_rule" "tcp" {
+resource "azurerm_lb_nat_rule" "lb_nat_rule-ssh-deploy" {
   resource_group_name            = "${azurerm_resource_group.resource_group_deploy.name}"
   loadbalancer_id                = "${azurerm_lb.lb_deploy.id}"
   name                           = "RDP-VM-${count.index}"
@@ -174,7 +174,7 @@ resource "azurerm_network_interface" "network_interface_deploy" {
         private_ip_address_allocation = "dynamic"
         public_ip_address_id          = "${element(azurerm_public_ip.public_ip_deploy.*.id,count.index)}"
         load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.lb_backend_address_pool_deploy.id}"]
-        load_balancer_inbound_nat_rules_ids     = ["${element(azurerm_lb_nat_rule.tcp.*.id, count.index)}"]
+        load_balancer_inbound_nat_rules_ids     = ["${element(azurerm_lb_nat_rule.lb_nat_rule-ssh-deploy.*.id, count.index)}"]
 
     }
     
@@ -251,7 +251,7 @@ resource "azurerm_virtual_machine" "virtual_machine_deploy" {
         computer_name  = "vm-deploy${count.index}"
         admin_username = "azureuser"
         ## connect via ssh -p 50001 azureuser@ipaddress
-        
+
     }
 
     os_profile_linux_config {
