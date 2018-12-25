@@ -250,6 +250,8 @@ resource "azurerm_virtual_machine" "virtual_machine_deploy" {
     os_profile {
         computer_name  = "vm-deploy${count.index}"
         admin_username = "azureuser"
+        ## connect via ssh -p 50001 azureuser@ipaddress
+        
     }
 
     os_profile_linux_config {
