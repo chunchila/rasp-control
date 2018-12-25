@@ -272,7 +272,7 @@ resource "azurerm_virtual_machine" "virtual_machine_deploy" {
     }
    
    provisioner "local-exec" {
-    command = "sleep 10"
+    command = "sleep 30"
     #interpreter = ["perl", "-e"]
   }
 
