@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a98e65bc-edfa-4b3f-be5c-7b49b1a5b7fe" name="Default Changelist" comment="" />
+    <list default="true" id="a98e65bc-edfa-4b3f-be5c-7b49b1a5b7fe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/debug.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/debug.tmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform.tfstate.backup" beforeDir="false" afterPath="$PROJECT_DIR$/terraform.tfstate.backup" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,12 +15,13 @@
     <session id="-534991240">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.3" value="3" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -56,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+            <state relative-caret-position="396">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
                 <marker date="1543267285045" expanded="true" signature="2207:2212" ph="..." />
@@ -567,8 +571,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        <state relative-caret-position="396">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
             <marker date="1543267285045" expanded="true" signature="2207:2212" ph="..." />

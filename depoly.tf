@@ -2,13 +2,13 @@
 provider "azurerm" {
     subscription_id = "3abd0dd5-602a-4620-b1f8-d53bf2a6dbad"
     client_id       = "f481799b-ac0f-4765-a2a1-8f7035da8cbd"
-    client_secret   = "3f1f48be-9406-4085-a8d1-14e07b8b73b8"
+    client_secret   = "3f1f48be-9406-4085-a8d1-14e07b8b73b1"
     tenant_id       = "d973bda2-a09e-44fe-9c85-c7ff5ea46be0"
 }
 
 
 variable "vms" {
-    default = 8
+    default = 2
   
 }
 
@@ -190,7 +190,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     }
    
    provisioner "local-exec" {
-    command = "sleep 4"
+    command = "sleep 10"
     #interpreter = ["perl", "-e"]
   }
 
