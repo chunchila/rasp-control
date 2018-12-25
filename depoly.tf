@@ -69,7 +69,7 @@ resource "azurerm_public_ip" "public_ip_deploy" {
 
 
 resource "azurerm_public_ip" "public_ip_lb_deploy" {
-    name                         = "public_ip_lb_deploy-${count.index}"
+    name                         = "public_ip_lb_deploy"
     location                     = "eastus"
     resource_group_name          = "${azurerm_resource_group.resource_group_deploy.name}"
     public_ip_address_allocation = "dynamic"
@@ -128,9 +128,9 @@ resource "azurerm_lb_nat_rule" "tcp" {
   name                           = "RDP-VM-${count.index}"
   protocol                       = "tcp"
   frontend_port                  = "5000${count.index + 1}"
-  backend_port                   = 3389
+  backend_port                   = 22
   frontend_ip_configuration_name = "LoadBalancerFrontEnd"
-  count                          = 2
+  count                          = "${var.vms}"
 }
 
 resource "azurerm_lb_rule" "lb_rule" {
@@ -207,24 +207,36 @@ resource "azurerm_storage_account" "storage_account_deploy" {
     }
 }
 
+
+resource "azurerm_availability_set" "availability_set_deploy" {
+  name                         = "availability_set_deploy"
+  location                     = "eastus"
+  resource_group_name          = "${azurerm_resource_group.resource_group_deploy.name}"
+  platform_fault_domain_count  = 2
+  platform_update_domain_count = 2
+  managed                      = true
+}
+
+
+
 # Create virtual machine
 resource "azurerm_virtual_machine" "virtual_machine_deploy" {
     count                 = "${var.vms}" 
-    name                  = "virtual_machine_deploy-${count.index}"
+    name                  = "vm-deploy-${count.index}"
     location              = "eastus"
     resource_group_name   = "${azurerm_resource_group.resource_group_deploy.name}"
     network_interface_ids = ["${element(azurerm_network_interface.network_interface_deploy.*.id,count.index)}"]
     vm_size               = "Standard_DS1_v2"
     delete_data_disks_on_termination = true
     delete_os_disk_on_termination  =true
+    availability_set_id   = "${azurerm_availability_set.availability_set_deploy.id}"
     
 
     storage_os_disk {
-        name              = "virtual_machine_deploy_storage_os_disk-${count.index}"
+        name              = "vm-deploy-${count.index}"
         caching           = "ReadWrite"
         create_option     = "FromImage"
         managed_disk_type = "Premium_LRS"
-
     }
     
 
@@ -236,7 +248,7 @@ resource "azurerm_virtual_machine" "virtual_machine_deploy" {
     }
 
     os_profile {
-        computer_name  = "vm_deploy_${count.index}"
+        computer_name  = "vm-deploy${count.index}"
         admin_username = "azureuser"
     }
 
