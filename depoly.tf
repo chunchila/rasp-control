@@ -125,9 +125,9 @@ resource "azurerm_lb_backend_address_pool" "lb_backend_address_pool_deploy" {
 resource "azurerm_lb_nat_rule" "lb_nat_rule-ssh-deploy" {
   resource_group_name            = "${azurerm_resource_group.resource_group_deploy.name}"
   loadbalancer_id                = "${azurerm_lb.lb_deploy.id}"
-  name                           = "RDP-VM-${count.index}"
+  name                           = "lb_nat_rule-ssh-deploy-${count.index}"
   protocol                       = "tcp"
-  frontend_port                  = "5000${count.index + 1}"
+  frontend_port                  = "5000${count.index}"
   backend_port                   = 22
   frontend_ip_configuration_name = "LoadBalancerFrontEnd"
   count                          = "${var.vms}"
