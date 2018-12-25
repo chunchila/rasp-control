@@ -153,7 +153,7 @@ resource "azurerm_lb_probe" "lb_probe" {
   loadbalancer_id     = "${azurerm_lb.lb_deploy.id}"
   name                = "tcpProbe"
   protocol            = "tcp"
-  port                = 80
+  port                = 22
   interval_in_seconds = 5
   number_of_probes    = 2
 }
